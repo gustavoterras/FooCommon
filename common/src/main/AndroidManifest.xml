@@ -3,7 +3,7 @@
     package="br.com.gustavoterras.foo.lib.common">
 
     <application>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".CommonActivity"/>
     </application>
 
 </manifest>
