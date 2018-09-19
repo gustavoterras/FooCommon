@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,10 +58,19 @@ public class EventsFragment extends Fragment {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                                Intent intent = new Intent();
-                                intent.setClassName("br.com.gustavoterras.lib","LibMyActivity");
+//                                Intent intent = new Intent();
+//                                intent.setClassName("br.com.gustavoterras.lib","LibMyActivity");
+//
+//                                startActivity(intent);
 
-                                startActivity(intent);
+                                String activityToStart = "br.com.gustavoterras.lib.LibMyActivity";
+                                try {
+                                    Class<?> c = Class.forName(activityToStart);
+                                    Intent intent = new Intent(getActivity(), c);
+                                    startActivity(intent);
+                                } catch (ClassNotFoundException ignored) {
+                                    Log.e("TAG", "xablau");
+                                }
                             }
                         });
 
