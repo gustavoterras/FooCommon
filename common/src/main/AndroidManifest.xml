@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.gustavoterras.foo.lib.common">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application>
-        <activity android:name=".CommonActivity"/>
+        <activity android:name=".CommonActivity" />
     </application>
 
 </manifest>

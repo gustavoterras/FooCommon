@@ -8,9 +8,9 @@
 
     <fragment
         android:id="@+id/component_1"
-        android:name="br.com.gustavoterras.foo.lib.common.BlankFragment"
+        android:name="br.com.gustavoterras.foo.lib.common.EventsFragment"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        tools:layout="@layout/fragment_blank" />
+        tools:layout="@layout/fragment_events" />
 
 </LinearLayout>
