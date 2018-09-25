@@ -3,6 +3,7 @@ package br.com.gustavoterras.foo.lib.common;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,13 +33,13 @@ import io.reactivex.disposables.Disposable;
 public class EventsFragment extends Fragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         FragmentEventsBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_events, container, false);
 
         final ListView listView = binding.list;
 
-        ConsumerService.INSTANCE.getEvents(Constants.INSTANCE.getURL_EVENTS())
+        ConsumerService.INSTANCE.getEvents()
                 .subscribe(new Observer<List<Object>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
@@ -57,11 +58,6 @@ public class EventsFragment extends Fragment {
                         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-//                                Intent intent = new Intent();
-//                                intent.setClassName("br.com.gustavoterras.lib","LibMyActivity");
-//
-//                                startActivity(intent);
 
                                 String activityToStart = "br.com.gustavoterras.lib.LibMyActivity";
                                 try {
@@ -88,8 +84,6 @@ public class EventsFragment extends Fragment {
 
                     }
                 });
-
-
 
         return binding.getRoot();
     }
